@@ -1,3 +1,6 @@
+#ifndef NEOPIXEL_H
+#define NEOPIXEL_H
+
 // need to pass context around since we can have multiple neopixel strings.
 #include <stdint.h>
 struct neo_handle;
@@ -36,3 +39,5 @@ void neopix_clear(neo_t h);
 void pattern_red(neo_t h);
 void pattern_blue(neo_t h);
 void pattern_green(neo_t h);
+
+#endif

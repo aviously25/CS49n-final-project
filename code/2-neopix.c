@@ -3,18 +3,17 @@
  * a light array.
  */
 //#include "WS2812B.h"
+#include "graphics.h"
 #include "neopixel.h"
 #include "rpi.h"
 
 // the pin used to control the light strip.
 enum { pix_pin = 21 };
 
-// stores color info
-struct rgb {
-  uint8_t r;
-  uint8_t g;
-  uint8_t b;
-};
+// some common colors
+const struct rgb BLUE = {0, 0, 0xff};
+const struct rgb GREEN = {0, 0xff, 0};
+const struct rgb RED = {0xff, 0, 0};
 
 // crude routine to write a pixel at a given location.
 void place_cursor(neo_t h, int i) {
@@ -22,41 +21,6 @@ void place_cursor(neo_t h, int i) {
   neopix_write(h, i - 1, 0, 0xff, 0);
   neopix_write(h, i, 0, 0, 0xff);
   neopix_flush(h);
-}
-
-void writeTo8x32(neo_t matrix, uint8_t row, uint8_t col, struct rgb rgb) {
-  assert(row <= 8 && row >= 1);
-  assert(col <= 32 && col >= 1);
-
-  if (col % 2 == 1) {
-    neopix_write(matrix, 8 * (col - 1) + (row - 1), rgb.r, rgb.g, rgb.b);
-  } else {
-    neopix_write(matrix, 8 * (col - 1) + 7 - (row - 1), rgb.r, rgb.g, rgb.b);
-  }
-}
-
-void writeTo16x32(neo_t matrix, uint8_t row, uint8_t col, struct rgb rgb) {
-  assert(row <= 16 && row >= 1);
-  assert(col <= 32 && col >= 1);
-
-  // handles the 1st 8x32 matrix
-  if (row <= 8) {
-    if (col % 2 == 1) {
-      neopix_write(matrix, 8 * (31 - (col - 1)) + (row - 1), rgb.r, rgb.g,
-                   rgb.b);
-    } else {
-      neopix_write(matrix, 8 * (31 - (col - 1)) + (7 - (row - 1)), rgb.r, rgb.g,
-                   rgb.b);
-    }
-  } else { // handle 2nd matrix
-    if (col % 2 == 1) {
-      neopix_write(matrix, (8 * (col - 1)) + 256 + (row - 9), rgb.r, rgb.g,
-                   rgb.b);
-    } else {
-      neopix_write(matrix, (8 * (col - 1)) + 256 + (7 - (row - 9)), rgb.r,
-                   rgb.g, rgb.b);
-    }
-  }
 }
 
 void notmain(void) {
@@ -67,8 +31,8 @@ void notmain(void) {
   // make sure when you implement the neopixel
   // interface works and pushes a pixel around your light
   // array.
-  unsigned npixels = 512; // you'll have to figure this out.
-  neo_t h = neopix_init(pix_pin, npixels);
+  unsigned numPanels = 2; // you'll have to figure this out.
+  neo_t h = neopix_init(pix_pin, 256 * numPanels);
 
   // does 10 increasingly faster loops.
   /*    for(int j = 0; j < 10; j++) {
@@ -78,9 +42,6 @@ void notmain(void) {
               delay_ms(10-j);
           }
       } */
-
-  const struct rgb BLUE = {0, 0, 0xff};
-  const struct rgb GREEN = {0, 0xff, 0};
 
   // write A
   for (int r = 4; r < 8; r++) {

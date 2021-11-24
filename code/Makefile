@@ -7,7 +7,8 @@ OPT_LEVEL = -O3
 # your source, shared by driver code
 #   if you want to use our staff-hc-sr04.o,
 #   comment SRC out and uncomment STAFF_OBJS
-SRC := neopixel.c
+SRC := neopixel.c \
+			 graphics.c
 
 
 # define this if you need to give the device for your pi
