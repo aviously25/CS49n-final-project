@@ -44,34 +44,37 @@ void notmain(void) {
       } */
 
   // write A
-  for (int r = 4; r < 8; r++) {
-    writeTo16x32(h, r, 4, BLUE);
-  }
-  writeTo16x32(h, 3, 5, BLUE);
-  writeTo16x32(h, 2, 6, BLUE);
-  writeTo16x32(h, 3, 7, BLUE);
-  writeTo16x32(h, 5, 5, BLUE);
-  writeTo16x32(h, 5, 6, BLUE);
-  writeTo16x32(h, 5, 7, BLUE);
-  for (int r = 4; r < 8; r++) {
-    writeTo16x32(h, r, 8, BLUE);
-  }
+  // for (int r = 4; r < 8; r++) {
+  //   writeTo16x32(h, r, 4, BLUE);
+  // }
+  // writeTo16x32(h, 3, 5, BLUE);
+  // writeTo16x32(h, 2, 6, BLUE);
+  // writeTo16x32(h, 3, 7, BLUE);
+  // writeTo16x32(h, 5, 5, BLUE);
+  // writeTo16x32(h, 5, 6, BLUE);
+  // writeTo16x32(h, 5, 7, BLUE);
+  // for (int r = 4; r < 8; r++) {
+  //   writeTo16x32(h, r, 8, BLUE);
+  // }
+  //
+  // // write V
+  // writeTo16x32(h, 4, 10, BLUE);
+  // writeTo16x32(h, 5, 10, BLUE);
+  // writeTo16x32(h, 6, 10, BLUE);
+  // writeTo16x32(h, 7, 11, BLUE);
+  // writeTo16x32(h, 6, 12, BLUE);
+  // writeTo16x32(h, 5, 12, BLUE);
+  // writeTo16x32(h, 4, 12, BLUE);
+  //
+  // // write i
+  // writeTo16x32(h, 3, 14, BLUE);
+  // writeTo16x32(h, 5, 14, BLUE);
+  // writeTo16x32(h, 6, 14, BLUE);
+  // writeTo16x32(h, 7, 14, BLUE);
 
-  // write V
-  writeTo16x32(h, 4, 10, BLUE);
-  writeTo16x32(h, 5, 10, BLUE);
-  writeTo16x32(h, 6, 10, BLUE);
-  writeTo16x32(h, 7, 11, BLUE);
-  writeTo16x32(h, 6, 12, BLUE);
-  writeTo16x32(h, 5, 12, BLUE);
-  writeTo16x32(h, 4, 12, BLUE);
-
-  // write i
-  writeTo16x32(h, 3, 14, BLUE);
-  writeTo16x32(h, 5, 14, BLUE);
-  writeTo16x32(h, 6, 14, BLUE);
-  writeTo16x32(h, 7, 14, BLUE);
-
+  drawTopWall(h, 9, 5);
+  drawBottomWall(h, 9, 5);
+  drawBird(h, 8);
   neopix_flush(h);
 
   output("done!\n");

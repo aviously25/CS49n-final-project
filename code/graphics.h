@@ -34,4 +34,8 @@ Takes in a neo_t, 'row' value from 1-32, 'col' values from 1-32, and struct rgb
 */
 void writeTo32x32(neo_t matrix, uint8_t row, uint8_t col, struct rgb rgb);
 
+void drawTopWall(neo_t matrix, uint8_t topLeftX, uint8_t height);
+void drawBottomWall(neo_t matrix, uint8_t bottomLeftX, uint8_t height);
+void drawBird(neo_t matrix, uint8_t topY);
+
 #endif
