@@ -10,6 +10,7 @@ Use github submodules I think. [heres a quick intro](https://dev.to/jjokah/submo
   - Em: Game logic
   - Spencer: Interrupts/ultrasonic sensor
   - Vicky: Graphics?
+
 Deadline around friday night
 
 ### Notes
