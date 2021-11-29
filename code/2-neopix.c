@@ -3,7 +3,9 @@
  * a light array.
  */
 //#include "WS2812B.h"
+// #include "graphics.h"
 #include "graphics.h"
+#include "letters.h"
 #include "neopixel.h"
 #include "rpi.h"
 
@@ -56,8 +58,8 @@ void notmain(void) {
   // for (int r = 4; r < 8; r++) {
   //   writeTo16x32(h, r, 8, BLUE);
   // }
-  //
-  // // write V
+
+  // write V
   // writeTo16x32(h, 4, 10, BLUE);
   // writeTo16x32(h, 5, 10, BLUE);
   // writeTo16x32(h, 6, 10, BLUE);
@@ -65,16 +67,21 @@ void notmain(void) {
   // writeTo16x32(h, 6, 12, BLUE);
   // writeTo16x32(h, 5, 12, BLUE);
   // writeTo16x32(h, 4, 12, BLUE);
-  //
-  // // write i
+
+  // write i
   // writeTo16x32(h, 3, 14, BLUE);
   // writeTo16x32(h, 5, 14, BLUE);
   // writeTo16x32(h, 6, 14, BLUE);
   // writeTo16x32(h, 7, 14, BLUE);
 
-  drawTopWall(h, 9, 5);
-  drawBottomWall(h, 9, 5);
-  drawBird(h, 8);
+  // drawTopWall(h, 9, 5);
+  // drawBottomWall(h, 9, 5);
+  // drawBird(h, 8);
+
+  // drawA(h, 8, RED);
+  // writeTo32x32(h, 17, 1, RED);
+  char str[6] = {'H', 'E', 'L', 'L', 'O', '\0'};
+  drawText(h, str);
   neopix_flush(h);
 
   output("done!\n");

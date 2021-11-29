@@ -1,5 +1,7 @@
 #include "graphics.h"
+#include "letters.h"
 #include "neopixel.h"
+#include "rpi.h"
 
 #define WALL_WIDTH 4
 
@@ -40,8 +42,8 @@ void writeTo16x32(neo_t matrix, uint8_t row, uint8_t col, struct rgb rgb) {
 }
 
 void writeTo32x32(neo_t matrix, uint8_t row, uint8_t col, struct rgb rgb) {
-  assert(row <= 16 && row >= 1);
-  assert(col <= 32 && col >= 1);
+  // assert(row <= 16 && row >= 1);
+  // assert(col <= 32 && col >= 1);
 
   // handles the 1st 8x32 matrix
   if (row <= 8) {
@@ -141,4 +143,100 @@ void drawBird(neo_t matrix, uint8_t topY) {
   writeTo32x32(matrix, topY + 1, 5, BIRD);
   writeTo32x32(matrix, topY + 1, 4, BIRD);
   writeTo32x32(matrix, topY + 2, 5, BIRD);
+}
+
+void drawText(neo_t matrix, char *str) {
+  const struct rgb LETTER = {0, 0, 0xff};
+  // str = convLetters(str);
+  uint8_t col = 2;
+
+  while (*str != '\0') {
+    switch (*str) {
+    case 'A':
+      drawA(matrix, col, LETTER);
+      break;
+    case 'B':
+      drawB(matrix, col, LETTER);
+      break;
+    case 'C':
+      drawC(matrix, col, LETTER);
+      break;
+    case 'D':
+      drawD(matrix, col, LETTER);
+      break;
+    case 'E':
+      drawE(matrix, col, LETTER);
+      break;
+    case 'F':
+      drawF(matrix, col, LETTER);
+      break;
+    case 'G':
+      drawG(matrix, col, LETTER);
+      break;
+    case 'H':
+      drawH(matrix, col, LETTER);
+      break;
+    case 'I':
+      drawI(matrix, col, LETTER);
+      break;
+    case 'J':
+      drawJ(matrix, col, LETTER);
+      break;
+    case 'K':
+      drawK(matrix, col, LETTER);
+      break;
+    case 'L':
+      drawL(matrix, col, LETTER);
+      break;
+    case 'M':
+      drawM(matrix, col, LETTER);
+      break;
+    case 'N':
+      drawN(matrix, col, LETTER);
+      break;
+    case 'O':
+      drawO(matrix, col, LETTER);
+      break;
+    case 'P':
+      drawP(matrix, col, LETTER);
+      break;
+    case 'Q':
+      drawQ(matrix, col, LETTER);
+      break;
+    case 'R':
+      drawR(matrix, col, LETTER);
+      break;
+    case 'S':
+      drawS(matrix, col, LETTER);
+      break;
+    case 'T':
+      drawT(matrix, col, LETTER);
+      break;
+    case 'U':
+      drawU(matrix, col, LETTER);
+      break;
+    case 'V':
+      drawV(matrix, col, LETTER);
+      break;
+    case 'W':
+      drawW(matrix, col, LETTER);
+      break;
+    case 'X':
+      drawX(matrix, col, LETTER);
+      break;
+    case 'Y':
+      drawY(matrix, col, LETTER);
+      break;
+    case 'Z':
+      drawZ(matrix, col, LETTER);
+      break;
+    case ' ':
+      col += 5;
+      break;
+    default:
+      break;
+    }
+    col += 6;
+    str++;
+  }
 }

@@ -8,7 +8,8 @@ OPT_LEVEL = -O3
 #   if you want to use our staff-hc-sr04.o,
 #   comment SRC out and uncomment STAFF_OBJS
 SRC := neopixel.c \
-			 graphics.c
+			 graphics.c \
+			 letters.c
 
 
 # define this if you need to give the device for your pi
