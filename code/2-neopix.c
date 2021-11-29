@@ -80,7 +80,7 @@ void notmain(void) {
 
   // drawA(h, 8, RED);
   // writeTo32x32(h, 17, 1, RED);
-  char str[6] = {'H', 'E', 'L', 'L', '\0'};
+  char str[6] = {'H', 'E', 'L', 'O', '\0'};
   drawText(h, str);
   neopix_flush(h);
 
