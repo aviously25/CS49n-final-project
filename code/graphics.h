@@ -22,14 +22,14 @@ struct Location {
 /* Writes to an 8x32 grid.
 Takes in a neo_t, 'row' value from 1-8, 'col' values from 1-32, and struct rgb
 */
-void writeTo8x32(neo_t matrix, uint8_t row, uint8_t col, struct rgb rgb);
+// void writeTo8x32(neo_t matrix, uint8_t row, uint8_t col, struct rgb rgb);
 
 /* Writes to two 8x32 grids.
 Takes in a neo_t, 'row' value from 1-16, 'col' values from 1-32, and struct rgb
 */
-void writeTo16x32(neo_t matrix, uint8_t row, uint8_t col, struct rgb rgb);
+// void writeTo16x32(neo_t matrix, uint8_t row, uint8_t col, struct rgb rgb);
 
-/* UNTESTED! Writes to four 8x32 grids.
+/* Writes to four 8x32 grids.
 Takes in a neo_t, 'row' value from 1-32, 'col' values from 1-32, and struct rgb
 */
 void writeTo32x32(neo_t matrix, uint8_t row, uint8_t col, struct rgb rgb);
