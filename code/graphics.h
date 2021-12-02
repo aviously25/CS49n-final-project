@@ -38,5 +38,7 @@ void drawTopWall(neo_t matrix, uint8_t topLeftX, uint8_t height);
 void drawBottomWall(neo_t matrix, uint8_t bottomLeftX, uint8_t height);
 void drawBird(neo_t matrix, uint8_t topY);
 
-void drawText(neo_t matrix, char *str);
+void drawText(neo_t matrix, char str[]);
+void drawLetter(neo_t matrix, char c, uint8_t *col);
+
 #endif

@@ -4,11 +4,11 @@
 #include "rpi.h"
 #include <ctype.h>
 
-char *convLetters(char *str) {
+char *convLetters(char str[]) {
   char *front = str;
-  while (str) {
-    *str = toupper(*str);
-    str++;
+
+  for (int i = 0; i < strlen(str); i++) {
+    // str[i] = toupper(str[i]);
   }
 
   return front;

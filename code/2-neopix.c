@@ -36,53 +36,19 @@ void notmain(void) {
   unsigned numPanels = 2; // you'll have to figure this out.
   neo_t h = neopix_init(pix_pin, 256 * numPanels);
 
-  // does 10 increasingly faster loops.
-  /*    for(int j = 0; j < 10; j++) {
-          output("loop %d\n", j);
-          for(int i = 0; i < npixels; i++) {
-              place_cursor(h,i);
-              delay_ms(10-j);
-          }
-      } */
-
-  // write A
-  // for (int r = 4; r < 8; r++) {
-  //   writeTo16x32(h, r, 4, BLUE);
-  // }
-  // writeTo16x32(h, 3, 5, BLUE);
-  // writeTo16x32(h, 2, 6, BLUE);
-  // writeTo16x32(h, 3, 7, BLUE);
-  // writeTo16x32(h, 5, 5, BLUE);
-  // writeTo16x32(h, 5, 6, BLUE);
-  // writeTo16x32(h, 5, 7, BLUE);
-  // for (int r = 4; r < 8; r++) {
-  //   writeTo16x32(h, r, 8, BLUE);
-  // }
-
-  // write V
-  // writeTo16x32(h, 4, 10, BLUE);
-  // writeTo16x32(h, 5, 10, BLUE);
-  // writeTo16x32(h, 6, 10, BLUE);
-  // writeTo16x32(h, 7, 11, BLUE);
-  // writeTo16x32(h, 6, 12, BLUE);
-  // writeTo16x32(h, 5, 12, BLUE);
-  // writeTo16x32(h, 4, 12, BLUE);
-
-  // write i
-  // writeTo16x32(h, 3, 14, BLUE);
-  // writeTo16x32(h, 5, 14, BLUE);
-  // writeTo16x32(h, 6, 14, BLUE);
-  // writeTo16x32(h, 7, 14, BLUE);
-
   // drawTopWall(h, 9, 5);
   // drawBottomWall(h, 9, 5);
   // drawBird(h, 8);
 
   // drawA(h, 8, RED);
   // writeTo32x32(h, 17, 1, RED);
-  char str[6] = {'H', 'E', 'L', 'O', '\0'};
+  char *str = "BRUH";
+
+  // NOTE: this function is running in an infinite while loop at the moment
   drawText(h, str);
-  neopix_flush(h);
+  // so nothing below this will be running
+
+  // neopix_flush(h);
 
   output("done!\n");
 }

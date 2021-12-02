@@ -6,7 +6,7 @@
 #include "graphics.h"
 #include <stdint.h>
 
-char* convLetters(char* str);
+char *convLetters(char str[]);
 void drawA(neo_t h, uint8_t leftPos, struct rgb color);
 void drawB(neo_t h, uint8_t leftPos, struct rgb color);
 void drawC(neo_t h, uint8_t leftPos, struct rgb color);
