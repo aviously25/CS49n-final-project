@@ -14,15 +14,16 @@ Use github submodules I think. [heres a quick intro](https://dev.to/jjokah/submo
 Deadline around friday night
 
 ### TODO
-- Scoring system
-- fix 0-index in pong.c
-- solder
-- get power supply working
-- add numbers and punctuation to letters.c
+- Scoring system (avi)
+- fix 0-index in pong.c (vicky)
+- solder (spencer)
+- get power supply working(spencer)
+- add numbers and punctuation to letters.c (avi)
 - stabilize input
+- make pretty at some point
 - Maybe:
   - genetic algorithm
-  - CPU player
+  - CPU player (vicky)
 
 ### Note
 pong stuff is on `pong.c`
