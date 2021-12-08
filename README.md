@@ -13,5 +13,16 @@ Use github submodules I think. [heres a quick intro](https://dev.to/jjokah/submo
 
 Deadline around friday night
 
-### Notes
-The code I wrote so far is in `2-neopix.c`. I will create a `graphics.c` and `graphics.h` soon on a new branch
+### TODO
+- Scoring system
+- fix 0-index in pong.c
+- solder
+- get power supply working
+- add numbers and punctuation to letters.c
+- stabilize input
+- Maybe:
+  - genetic algorithm
+  - CPU player
+
+### Note
+pong stuff is on `pong.c`
