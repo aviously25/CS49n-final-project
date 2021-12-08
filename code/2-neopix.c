@@ -42,7 +42,7 @@ void notmain(void) {
 
   // drawA(h, 8, RED);
   // writeTo32x32(h, 17, 1, RED);
-  char *str = "BRUH";
+  char *str = "ITS GIVING JAIL";
 
   // NOTE: this function is running in an infinite while loop at the moment
   drawText(h, str);

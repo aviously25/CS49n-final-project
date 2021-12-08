@@ -45,6 +45,7 @@
 //   }
 // }
 //
+
 void writeTo32x32(neo_t matrix, uint8_t row, uint8_t col, struct rgb rgb) {
   // make sure its valid
   if (col < 1 || col > 32 || row < 1 || row > 32) {
@@ -154,9 +155,9 @@ void drawBird(neo_t matrix, uint8_t topY) {
 
 // use *col to emulate pass by reference
 void drawLetter(neo_t matrix, char c, uint8_t *col) {
-  const struct rgb LETTER = {0, 0, 0xff};
+  const struct rgb LETTER = {128, 0, 128};
 
-  printk("Char: %s, col: %d \n", &c, *col);
+  // printk("Char: %s, col: %d \n", &c, *col);
 
   switch (c) {
   case 'A':
@@ -262,7 +263,6 @@ void drawText(neo_t matrix, char str[]) {
 
     str = front;
     firstCol--;
-    printk("first col: %d\n", firstCol);
     int limit = (-6 * strlen(str));
     if (firstCol < limit) {
       firstCol = 28;
