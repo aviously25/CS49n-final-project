@@ -161,85 +161,115 @@ void drawLetter(neo_t matrix, char c, uint8_t *col) {
 
   switch (c) {
   case 'A':
-    drawA(matrix, *col, LETTER);
+    *col += drawA(matrix, *col, LETTER) + 1;
     break;
   case 'B':
-    drawB(matrix, *col, LETTER);
+    *col += drawB(matrix, *col, LETTER) + 1;
     break;
   case 'C':
-    drawC(matrix, *col, LETTER);
+    *col += drawC(matrix, *col, LETTER) + 1;
     break;
   case 'D':
-    drawD(matrix, *col, LETTER);
+    *col += drawD(matrix, *col, LETTER) + 1;
     break;
   case 'E':
-    drawE(matrix, *col, LETTER);
+    *col += drawE(matrix, *col, LETTER) + 1;
     break;
   case 'F':
-    drawF(matrix, *col, LETTER);
+    *col += drawF(matrix, *col, LETTER) + 1;
     break;
   case 'G':
-    drawG(matrix, *col, LETTER);
+    *col += drawG(matrix, *col, LETTER) + 1;
     break;
   case 'H':
-    drawH(matrix, *col, LETTER);
+    *col += drawH(matrix, *col, LETTER) + 1;
     break;
   case 'I':
-    drawI(matrix, *col, LETTER);
+    *col += drawI(matrix, *col, LETTER) + 1;
     break;
   case 'J':
-    drawJ(matrix, *col, LETTER);
+    *col += drawJ(matrix, *col, LETTER) + 1;
     break;
   case 'K':
-    drawK(matrix, *col, LETTER);
+    *col += drawK(matrix, *col, LETTER) + 1;
     break;
   case 'L':
-    drawL(matrix, *col, LETTER);
+    *col += drawL(matrix, *col, LETTER) + 1;
     break;
   case 'M':
-    drawM(matrix, *col, LETTER);
+    *col += drawM(matrix, *col, LETTER) + 1;
     break;
   case 'N':
-    drawN(matrix, *col, LETTER);
+    *col += drawN(matrix, *col, LETTER) + 1;
     break;
   case 'O':
-    drawO(matrix, *col, LETTER);
+    *col += drawO(matrix, *col, LETTER) + 1;
     break;
   case 'P':
-    drawP(matrix, *col, LETTER);
+    *col += drawP(matrix, *col, LETTER) + 1;
     break;
   case 'Q':
-    drawQ(matrix, *col, LETTER);
+    *col += drawQ(matrix, *col, LETTER) + 1;
     break;
   case 'R':
-    drawR(matrix, *col, LETTER);
+    *col += drawR(matrix, *col, LETTER) + 1;
     break;
   case 'S':
-    drawS(matrix, *col, LETTER);
+    *col += drawS(matrix, *col, LETTER) + 1;
     break;
   case 'T':
-    drawT(matrix, *col, LETTER);
+    *col += drawT(matrix, *col, LETTER) + 1;
     break;
   case 'U':
-    drawU(matrix, *col, LETTER);
+    *col += drawU(matrix, *col, LETTER) + 1;
     break;
   case 'V':
-    drawV(matrix, *col, LETTER);
+    *col += drawV(matrix, *col, LETTER) + 1;
     break;
   case 'W':
-    drawW(matrix, *col, LETTER);
+    *col += drawW(matrix, *col, LETTER) + 1;
     break;
   case 'X':
-    drawX(matrix, *col, LETTER);
+    *col += drawX(matrix, *col, LETTER) + 1;
     break;
   case 'Y':
-    drawY(matrix, *col, LETTER);
+    *col += drawY(matrix, *col, LETTER) + 1;
     break;
   case 'Z':
-    drawZ(matrix, *col, LETTER);
+    *col += drawZ(matrix, *col, LETTER) + 1;
     break;
   case ' ':
-    //*col += 2;
+    *col += 2;
+    break;
+  case '0':
+    *col += draw0(matrix, *col, LETTER) + 1;
+    break;
+  case '1':
+    *col += draw1(matrix, *col, LETTER) + 1;
+    break;
+  case '2':
+    *col += draw2(matrix, *col, LETTER) + 1;
+    break;
+  case '3':
+    *col += draw3(matrix, *col, LETTER) + 1;
+    break;
+  case '4':
+    *col += draw4(matrix, *col, LETTER) + 1;
+    break;
+  case '5':
+    *col += draw5(matrix, *col, LETTER) + 1;
+    break;
+  case '6':
+    *col += draw6(matrix, *col, LETTER) + 1;
+    break;
+  case '7':
+    *col += draw7(matrix, *col, LETTER) + 1;
+    break;
+  case '8':
+    *col += draw8(matrix, *col, LETTER) + 1;
+    break;
+  case '9':
+    *col += draw9(matrix, *col, LETTER) + 1;
     break;
   default:
     break;

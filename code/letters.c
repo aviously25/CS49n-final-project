@@ -2,6 +2,7 @@
 #include "graphics.h"
 #include "neopixel.h"
 #include "rpi.h"
+#include <stdint.h>
 
 char *convLetters(char str[]) {
   char *front = str;
@@ -15,7 +16,7 @@ char *convLetters(char str[]) {
   return front;
 }
 
-void drawA(neo_t h, uint8_t leftPos, struct rgb color) {
+int drawA(neo_t h, uint8_t leftPos, struct rgb color) {
   // left line
   for (int r = 2; r < 7; r++) {
     writeTo32x32(h, r, leftPos, color);
@@ -32,9 +33,11 @@ void drawA(neo_t h, uint8_t leftPos, struct rgb color) {
   for (int r = 2; r < 7; r++) {
     writeTo32x32(h, r, leftPos + 4, color);
   }
+
+  return 5;
 }
 
-void drawB(neo_t h, uint8_t leftPos, struct rgb color) {
+int drawB(neo_t h, uint8_t leftPos, struct rgb color) {
   for (int r = 2; r <= 6; r++)
     writeTo32x32(h, r, leftPos, color);
   for (int r = 2; r <= 6; r += 2)
@@ -48,9 +51,11 @@ void drawB(neo_t h, uint8_t leftPos, struct rgb color) {
     writeTo32x32(h, r, leftPos + 4, color);
   for (int r = 5; r <= 6; r++)
     writeTo32x32(h, r, leftPos + 4, color);
+
+  return 5;
 }
 
-void drawC(neo_t h, uint8_t leftPos, struct rgb color) {
+int drawC(neo_t h, uint8_t leftPos, struct rgb color) {
   for (int r = 2; r <= 6; r++)
     writeTo32x32(h, r, leftPos, color);
   for (int r = 2; r <= 6; r += 4)
@@ -61,9 +66,11 @@ void drawC(neo_t h, uint8_t leftPos, struct rgb color) {
     writeTo32x32(h, r, leftPos + 3, color);
   for (int r = 2; r <= 6; r += 4)
     writeTo32x32(h, r, leftPos + 4, color);
+
+  return 5;
 }
 
-void drawD(neo_t h, uint8_t leftPos, struct rgb color) {
+int drawD(neo_t h, uint8_t leftPos, struct rgb color) {
   for (int r = 2; r <= 6; r++)
     writeTo32x32(h, r, leftPos, color);
   for (int r = 2; r <= 6; r += 4)
@@ -74,8 +81,10 @@ void drawD(neo_t h, uint8_t leftPos, struct rgb color) {
     writeTo32x32(h, r, leftPos + 3, color);
   for (int r = 3; r <= 5; r++)
     writeTo32x32(h, r, leftPos + 4, color);
+
+  return 5;
 }
-void drawE(neo_t h, uint8_t leftPos, struct rgb color) {
+int drawE(neo_t h, uint8_t leftPos, struct rgb color) {
   for (int r = 2; r <= 6; r++)
     writeTo32x32(h, r, leftPos, color);
   for (int r = 2; r <= 6; r += 2)
@@ -86,9 +95,11 @@ void drawE(neo_t h, uint8_t leftPos, struct rgb color) {
     writeTo32x32(h, r, leftPos + 3, color);
   for (int r = 2; r <= 6; r += 4)
     writeTo32x32(h, r, leftPos + 4, color);
+
+  return 5;
 }
 
-void drawF(neo_t h, uint8_t leftPos, struct rgb color) {
+int drawF(neo_t h, uint8_t leftPos, struct rgb color) {
   for (int r = 2; r <= 6; r++)
     writeTo32x32(h, r, leftPos, color);
   for (int r = 2; r <= 4; r += 2)
@@ -98,9 +109,11 @@ void drawF(neo_t h, uint8_t leftPos, struct rgb color) {
   for (int r = 2; r <= 4; r += 2)
     writeTo32x32(h, r, leftPos + 3, color);
   writeTo32x32(h, 2, leftPos + 4, color);
+
+  return 5;
 }
 
-void drawG(neo_t h, uint8_t leftPos, struct rgb color) {
+int drawG(neo_t h, uint8_t leftPos, struct rgb color) {
   for (int r = 2; r <= 6; r++)
     writeTo32x32(h, r, leftPos, color);
   for (int r = 2; r <= 6; r += 4)
@@ -113,9 +126,11 @@ void drawG(neo_t h, uint8_t leftPos, struct rgb color) {
   writeTo32x32(h, 2, leftPos + 4, color);
   for (int r = 4; r <= 6; r++)
     writeTo32x32(h, r, leftPos + 4, color);
+
+  return 5;
 }
 
-void drawH(neo_t h, uint8_t leftPos, struct rgb color) {
+int drawH(neo_t h, uint8_t leftPos, struct rgb color) {
   for (int r = 2; r <= 6; r++)
     writeTo32x32(h, r, leftPos, color);
   writeTo32x32(h, 4, leftPos + 1, color);
@@ -123,9 +138,11 @@ void drawH(neo_t h, uint8_t leftPos, struct rgb color) {
   writeTo32x32(h, 4, leftPos + 3, color);
   for (int r = 2; r <= 6; r++)
     writeTo32x32(h, r, leftPos + 4, color);
+
+  return 5;
 }
 
-void drawI(neo_t h, uint8_t leftPos, struct rgb color) {
+int drawI(neo_t h, uint8_t leftPos, struct rgb color) {
   for (int r = 2; r <= 6; r += 4)
     writeTo32x32(h, r, leftPos, color);
   for (int r = 2; r <= 6; r += 4)
@@ -136,9 +153,11 @@ void drawI(neo_t h, uint8_t leftPos, struct rgb color) {
     writeTo32x32(h, r, leftPos + 3, color);
   for (int r = 2; r <= 6; r += 4)
     writeTo32x32(h, r, leftPos + 4, color);
+
+  return 5;
 }
 
-void drawJ(neo_t h, uint8_t leftPos, struct rgb color) {
+int drawJ(neo_t h, uint8_t leftPos, struct rgb color) {
   writeTo32x32(h, 2, leftPos, color);
   for (int r = 5; r <= 6; r++)
     writeTo32x32(h, r, leftPos, color);
@@ -150,9 +169,11 @@ void drawJ(neo_t h, uint8_t leftPos, struct rgb color) {
   for (int r = 2; r <= 6; r++)
     writeTo32x32(h, r, leftPos + 3, color);
   writeTo32x32(h, 2, leftPos + 4, color);
+
+  return 5;
 }
 
-void drawK(neo_t h, uint8_t leftPos, struct rgb color) {
+int drawK(neo_t h, uint8_t leftPos, struct rgb color) {
   for (int r = 2; r <= 6; r++)
     writeTo32x32(h, r, leftPos, color);
   writeTo32x32(h, 4, leftPos + 1, color);
@@ -161,18 +182,22 @@ void drawK(neo_t h, uint8_t leftPos, struct rgb color) {
     writeTo32x32(h, r, leftPos + 3, color);
   for (int r = 2; r <= 6; r += 4)
     writeTo32x32(h, r, leftPos + 4, color);
+
+  return 5;
 }
 
-void drawL(neo_t h, uint8_t leftPos, struct rgb color) {
+int drawL(neo_t h, uint8_t leftPos, struct rgb color) {
   for (int r = 2; r <= 6; r++)
     writeTo32x32(h, r, leftPos, color);
   writeTo32x32(h, 6, leftPos + 1, color);
   writeTo32x32(h, 6, leftPos + 2, color);
   writeTo32x32(h, 6, leftPos + 3, color);
   writeTo32x32(h, 6, leftPos + 4, color);
+
+  return 5;
 }
 
-void drawM(neo_t h, uint8_t leftPos, struct rgb color) {
+int drawM(neo_t h, uint8_t leftPos, struct rgb color) {
   for (int r = 2; r <= 6; r++)
     writeTo32x32(h, r, leftPos, color);
   writeTo32x32(h, 3, leftPos + 1, color);
@@ -180,9 +205,11 @@ void drawM(neo_t h, uint8_t leftPos, struct rgb color) {
   writeTo32x32(h, 3, leftPos + 3, color);
   for (int r = 2; r <= 6; r++)
     writeTo32x32(h, r, leftPos + 4, color);
+
+  return 5;
 }
 
-void drawN(neo_t h, uint8_t leftPos, struct rgb color) {
+int drawN(neo_t h, uint8_t leftPos, struct rgb color) {
   for (int r = 2; r <= 6; r++)
     writeTo32x32(h, r, leftPos, color);
   writeTo32x32(h, 3, leftPos + 1, color);
@@ -190,9 +217,11 @@ void drawN(neo_t h, uint8_t leftPos, struct rgb color) {
   writeTo32x32(h, 5, leftPos + 3, color);
   for (int r = 2; r <= 6; r++)
     writeTo32x32(h, r, leftPos + 4, color);
+
+  return 5;
 }
 
-void drawO(neo_t h, uint8_t leftPos, struct rgb color) {
+int drawO(neo_t h, uint8_t leftPos, struct rgb color) {
   for (int r = 3; r <= 5; r++)
     writeTo32x32(h, r, leftPos, color);
   for (int r = 2; r <= 6; r += 4)
@@ -203,9 +232,11 @@ void drawO(neo_t h, uint8_t leftPos, struct rgb color) {
     writeTo32x32(h, r, leftPos + 3, color);
   for (int r = 3; r <= 5; r++)
     writeTo32x32(h, r, leftPos + 4, color);
+
+  return 5;
 }
 
-void drawP(neo_t h, uint8_t leftPos, struct rgb color) {
+int drawP(neo_t h, uint8_t leftPos, struct rgb color) {
   for (int r = 2; r <= 6; r++)
     writeTo32x32(h, r, leftPos, color);
   for (int r = 2; r <= 4; r += 2)
@@ -215,9 +246,11 @@ void drawP(neo_t h, uint8_t leftPos, struct rgb color) {
   for (int r = 2; r <= 4; r += 2)
     writeTo32x32(h, r, leftPos + 3, color);
   writeTo32x32(h, 3, leftPos + 4, color);
+
+  return 5;
 }
 
-void drawQ(neo_t h, uint8_t leftPos, struct rgb color) {
+int drawQ(neo_t h, uint8_t leftPos, struct rgb color) {
   for (int r = 2; r <= 5; r++)
     writeTo32x32(h, r, leftPos, color);
   for (int r = 2; r <= 5; r += 3)
@@ -231,9 +264,11 @@ void drawQ(neo_t h, uint8_t leftPos, struct rgb color) {
     writeTo32x32(h, r, leftPos + 3, color);
   for (int r = 2; r <= 5; r++)
     writeTo32x32(h, r, leftPos + 4, color);
+
+  return 5;
 }
 
-void drawR(neo_t h, uint8_t leftPos, struct rgb color) {
+int drawR(neo_t h, uint8_t leftPos, struct rgb color) {
   for (int r = 2; r <= 6; r++)
     writeTo32x32(h, r, leftPos, color);
   for (int r = 2; r <= 4; r += 2)
@@ -245,9 +280,11 @@ void drawR(neo_t h, uint8_t leftPos, struct rgb color) {
   writeTo32x32(h, 5, leftPos + 3, color);
   for (int r = 3; r <= 6; r += 3)
     writeTo32x32(h, r, leftPos + 4, color);
+
+  return 5;
 }
 
-void drawS(neo_t h, uint8_t leftPos, struct rgb color) {
+int drawS(neo_t h, uint8_t leftPos, struct rgb color) {
   for (int r = 2; r <= 4; r++)
     writeTo32x32(h, r, leftPos, color);
   writeTo32x32(h, 6, leftPos, color);
@@ -262,18 +299,22 @@ void drawS(neo_t h, uint8_t leftPos, struct rgb color) {
   for (int r = 4; r <= 6; r++)
     writeTo32x32(h, r, leftPos + 4, color);
   writeTo32x32(h, 2, leftPos + 4, color);
+
+  return 5;
 }
 
-void drawT(neo_t h, uint8_t leftPos, struct rgb color) {
+int drawT(neo_t h, uint8_t leftPos, struct rgb color) {
   writeTo32x32(h, 2, leftPos, color);
   writeTo32x32(h, 2, leftPos + 1, color);
   for (int r = 2; r <= 6; r++)
     writeTo32x32(h, r, leftPos + 2, color);
   writeTo32x32(h, 2, leftPos + 3, color);
   writeTo32x32(h, 2, leftPos + 4, color);
+
+  return 5;
 }
 
-void drawU(neo_t h, uint8_t leftPos, struct rgb color) {
+int drawU(neo_t h, uint8_t leftPos, struct rgb color) {
   for (int r = 2; r <= 6; r++)
     writeTo32x32(h, r, leftPos, color);
   writeTo32x32(h, 6, leftPos + 1, color);
@@ -281,9 +322,11 @@ void drawU(neo_t h, uint8_t leftPos, struct rgb color) {
   writeTo32x32(h, 6, leftPos + 3, color);
   for (int r = 2; r <= 6; r++)
     writeTo32x32(h, r, leftPos + 4, color);
+
+  return 5;
 }
 
-void drawV(neo_t h, uint8_t leftPos, struct rgb color) {
+int drawV(neo_t h, uint8_t leftPos, struct rgb color) {
   for (int r = 2; r <= 3; r++)
     writeTo32x32(h, r, leftPos, color);
   for (int r = 4; r <= 5; r++)
@@ -293,9 +336,11 @@ void drawV(neo_t h, uint8_t leftPos, struct rgb color) {
     writeTo32x32(h, r, leftPos + 3, color);
   for (int r = 2; r <= 3; r++)
     writeTo32x32(h, r, leftPos + 4, color);
+
+  return 5;
 }
 
-void drawW(neo_t h, uint8_t leftPos, struct rgb color) {
+int drawW(neo_t h, uint8_t leftPos, struct rgb color) {
   for (int r = 2; r <= 5; r++)
     writeTo32x32(h, r, leftPos, color);
   for (int r = 6; r <= 6; r += 2)
@@ -306,8 +351,10 @@ void drawW(neo_t h, uint8_t leftPos, struct rgb color) {
     writeTo32x32(h, r, leftPos + 3, color);
   for (int r = 2; r <= 5; r++)
     writeTo32x32(h, r, leftPos + 4, color);
+
+  return 5;
 }
-void drawX(neo_t h, uint8_t leftPos, struct rgb color) {
+int drawX(neo_t h, uint8_t leftPos, struct rgb color) {
   for (int r = 2; r <= 6; r += 4)
     writeTo32x32(h, r, leftPos, color);
   for (int r = 3; r <= 5; r += 2)
@@ -317,9 +364,11 @@ void drawX(neo_t h, uint8_t leftPos, struct rgb color) {
     writeTo32x32(h, r, leftPos + 3, color);
   for (int r = 2; r <= 6; r += 4)
     writeTo32x32(h, r, leftPos + 4, color);
+
+  return 5;
 }
 
-void drawY(neo_t h, uint8_t leftPos, struct rgb color) {
+int drawY(neo_t h, uint8_t leftPos, struct rgb color) {
   writeTo32x32(h, 2, leftPos, color);
   writeTo32x32(h, 3, leftPos, color);
   writeTo32x32(h, 4, leftPos + 1, color);
@@ -328,9 +377,11 @@ void drawY(neo_t h, uint8_t leftPos, struct rgb color) {
   writeTo32x32(h, 4, leftPos + 3, color);
   writeTo32x32(h, 3, leftPos + 4, color);
   writeTo32x32(h, 2, leftPos + 4, color);
+
+  return 5;
 }
 
-void drawZ(neo_t h, uint8_t leftPos, struct rgb color) {
+int drawZ(neo_t h, uint8_t leftPos, struct rgb color) {
   for (int c = leftPos; c < leftPos + 5; c++) {
     writeTo32x32(h, 2, c, color);
   }
@@ -342,4 +393,34 @@ void drawZ(neo_t h, uint8_t leftPos, struct rgb color) {
   for (int c = leftPos; c < leftPos + 5; c++) {
     writeTo32x32(h, 6, c, color);
   }
+
+  return 5;
+}
+
+int draw0(neo_t h, uint8_t leftPos, struct rgb color) {
+  for (int r = 2; r < 7; r++) {
+    writeTo32x32(h, r, leftPos, color);
+  }
+
+  writeTo32x32(h, 2, leftPos + 1, color);
+
+  for (int r = 2; r < 7; r++) {
+    writeTo32x32(h, r, leftPos + 3, color);
+  }
+
+  writeTo32x32(h, 6, leftPos + 1, color);
+
+  return 3;
+}
+
+int draw1(neo_t h, uint8_t leftPos, struct rgb color) {
+
+  writeTo32x32(h, 3, leftPos, color);
+  for (int r = 2; r < 7; r++) {
+    writeTo32x32(h, r, leftPos + 1, color);
+  }
+  writeTo32x32(h, 6, leftPos, color);
+  writeTo32x32(h, 6, leftPos + 2, color);
+
+  return 3;
 }

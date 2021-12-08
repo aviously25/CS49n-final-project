@@ -40,7 +40,8 @@ typedef struct dimensions {
 
 void draw_ball(neo_t h, ball_t *input);
 void draw_paddle(neo_t h, paddle_t *paddle);
-void draw_score(neo_t h, paddle_t *paddle, dimensions_t *wall);
+void draw_score(neo_t h, paddle_t *player1, paddle_t *player2,
+                dimensions_t *wall);
 void paddle_collisions(ball_t *inpt_ball, paddle_t *inpt_paddle);
 void paddle_pos(paddle_t *paddle, char dir);
 
@@ -212,8 +213,10 @@ void draw_paddle(neo_t h, paddle_t *paddle) {
   return;
 }
 
-void draw_score(neo_t h, paddle_t *inpt_paddle, dimensions_t *wall) {
-  char *score_txt = "Score: ";
+void draw_score(neo_t h, paddle_t *player1, paddle_t *player2,
+                dimensions_t *wall) {
+  char player1_score = player1->score + '0';
+  char player2_score = player2->score + '0';
   // drawScrollingText(h, score_txt);
   // char *score_txt = "Score: " + inpt_paddle->score;
   // mvprintw(0, wall->x / 2 - 7, "Score: %d", inpt_paddle->score);
