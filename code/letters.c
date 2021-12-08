@@ -2,13 +2,14 @@
 #include "graphics.h"
 #include "neopixel.h"
 #include "rpi.h"
-#include <ctype.h>
 
 char *convLetters(char str[]) {
   char *front = str;
 
   for (int i = 0; i < strlen(str); i++) {
-    // str[i] = toupper(str[i]);
+    if (str[i] >= 'a' && str[i] <= 'z') {
+      str[i] = str[i] - 32;
+    }
   }
 
   return front;

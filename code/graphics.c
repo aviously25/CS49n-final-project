@@ -155,7 +155,7 @@ void drawBird(neo_t matrix, uint8_t topY) {
 
 // use *col to emulate pass by reference
 void drawLetter(neo_t matrix, char c, uint8_t *col) {
-  const struct rgb LETTER = {128, 0, 128};
+  const struct rgb LETTER = {0xff, 0, 0xff};
 
   // printk("Char: %s, col: %d \n", &c, *col);
 
@@ -245,7 +245,10 @@ void drawLetter(neo_t matrix, char c, uint8_t *col) {
     break;
   }
 }
-void drawText(neo_t matrix, char str[]) {
+void drawScrollingText(neo_t matrix, char str[], int touch_pin) {
+  // init touch sensor
+  gpio_set_input(touch_pin);
+
   str = convLetters(str);
   int str_size = strlen(str);
   char *front = str;
@@ -270,5 +273,9 @@ void drawText(neo_t matrix, char str[]) {
     col = firstCol;
     neopix_flush(matrix);
     delay_ms(100);
+
+    if (gpio_read(touch_pin)) {
+      break;
+    }
   }
 }
