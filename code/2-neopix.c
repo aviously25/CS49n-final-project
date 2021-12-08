@@ -10,7 +10,7 @@
 #include "rpi.h"
 
 // the pin used to control the light strip.
-enum { pix_pin = 21 };
+enum { pix_pin = 16 };
 
 // some common colors
 const struct rgb BLUE = {0, 0, 0xff};
@@ -33,7 +33,7 @@ void notmain(void) {
   // make sure when you implement the neopixel
   // interface works and pushes a pixel around your light
   // array.
-  unsigned numPanels = 2; // you'll have to figure this out.
+  unsigned numPanels = 4; // you'll have to figure this out.
   neo_t h = neopix_init(pix_pin, 256 * numPanels);
 
   // drawTopWall(h, 9, 5);
@@ -41,14 +41,15 @@ void notmain(void) {
   // drawBird(h, 8);
 
   // drawA(h, 8, RED);
-  // writeTo32x32(h, 17, 1, RED);
-  char *str = "ITS GIVING JAIL";
+  writeTo32x32(h, 17, 1, RED);
+  // neopix_write(h, 760, 0xff, 0, 0);
+  // char *str = "ITS GIVING JAIL";
 
   // NOTE: this function is running in an infinite while loop at the moment
-  drawText(h, str);
+  // drawText(h, str);
   // so nothing below this will be running
 
-  // neopix_flush(h);
+  neopix_flush(h);
 
   output("done!\n");
 }

@@ -72,18 +72,18 @@ void writeTo32x32(neo_t matrix, uint8_t row, uint8_t col, struct rgb rgb) {
   } else if (row > 16 &&
              row <= 24) { // third matrix, should be similar logic to the first
     if (col % 2 == 1) {
-      neopix_write(matrix, 8 * (31 - (col - 1)) + 512 + (row - 1), rgb.r, rgb.g,
-                   rgb.b);
+      neopix_write(matrix, 8 * (31 - (col - 1)) + 512 + (row - 17), rgb.r,
+                   rgb.g, rgb.b);
     } else {
-      neopix_write(matrix, 8 * (31 - (col - 1)) + 512 + (7 - (row - 1)), rgb.r,
+      neopix_write(matrix, 8 * (31 - (col - 1)) + 512 + (7 - (row - 17)), rgb.r,
                    rgb.g, rgb.b);
     }
   } else { // fourth matrix, should be similar logic to the second one
     if (col % 2 == 1) {
-      neopix_write(matrix, (8 * (col - 1)) + 768 + (row - 9), rgb.r, rgb.g,
+      neopix_write(matrix, (8 * (col - 1)) + 768 + (row - 25), rgb.r, rgb.g,
                    rgb.b);
     } else {
-      neopix_write(matrix, (8 * (col - 1)) + 768 + (7 - (row - 9)), rgb.r,
+      neopix_write(matrix, (8 * (col - 1)) + 768 + (7 - (row - 25)), rgb.r,
                    rgb.g, rgb.b);
     }
   }
