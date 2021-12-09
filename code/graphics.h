@@ -40,5 +40,6 @@ void drawBird(neo_t matrix, uint8_t topY);
 
 void drawScrollingText(neo_t matrix, char str[], int touch_pin);
 void drawLetter(neo_t matrix, char c, uint8_t *col);
+void drawBorder(neo_t matrix, struct rgb color);
 
 #endif

@@ -6,46 +6,6 @@
 
 #define WALL_WIDTH 4
 
-// void writeTo8x32(neo_t matrix, uint8_t row, uint8_t col, struct rgb rgb) {
-//   assert(row <= 8 && row >= 1);
-//   assert(col <= 32 && col >= 1);
-//
-//   if (col % 2 == 1) {
-//     neopix_write(matrix, 8 * (31 - (col - 1)) + (row - 1), rgb.r, rgb.g,
-//     rgb.b);
-//   } else {
-//     neopix_write(matrix, 8 * (31 - (col - 1)) + (7 - (row - 1)), rgb.r,
-//     rgb.g,
-//                  rgb.b);
-//   }
-// }
-//
-// void writeTo16x32(neo_t matrix, uint8_t row, uint8_t col, struct rgb rgb) {
-//   assert(row <= 16 && row >= 1);
-//   assert(col <= 32 && col >= 1);
-//
-//   // handles the 1st 8x32 matrix
-//   if (row <= 8) {
-//     if (col % 2 == 1) {
-//       neopix_write(matrix, 8 * (31 - (col - 1)) + (row - 1), rgb.r, rgb.g,
-//                    rgb.b);
-//     } else {
-//       neopix_write(matrix, 8 * (31 - (col - 1)) + (7 - (row - 1)), rgb.r,
-//       rgb.g,
-//                    rgb.b);
-//     }
-//   } else { // handle 2nd matrix
-//     if (col % 2 == 1) {
-//       neopix_write(matrix, (8 * (col - 1)) + 256 + (row - 9), rgb.r, rgb.g,
-//                    rgb.b);
-//     } else {
-//       neopix_write(matrix, (8 * (col - 1)) + 256 + (7 - (row - 9)), rgb.r,
-//                    rgb.g, rgb.b);
-//     }
-//   }
-// }
-//
-
 void writeTo32x32(neo_t matrix, uint8_t row, uint8_t col, struct rgb rgb) {
   // make sure its valid
   if (col < 1 || col > 32 || row < 1 || row > 32) {
@@ -155,7 +115,7 @@ void drawBird(neo_t matrix, uint8_t topY) {
 
 // use *col to emulate pass by reference
 void drawLetter(neo_t matrix, char c, uint8_t *col) {
-  const struct rgb LETTER = {0xff, 0, 0xff};
+  const struct rgb LETTER = {200, 0, 200};
 
   // printk("Char: %s, col: %d \n", &c, *col);
 
@@ -307,5 +267,16 @@ void drawScrollingText(neo_t matrix, char str[], int touch_pin) {
     if (gpio_read(touch_pin)) {
       break;
     }
+  }
+}
+
+void drawBorder(neo_t matrix, struct rgb color) {
+  for (int c = 1; c < 33; c++) {
+    writeTo32x32(matrix, 8, c, color);
+    writeTo32x32(matrix, 32, c, color);
+  }
+  for (int r = 9; r < 33; r++) {
+    writeTo32x32(matrix, r, 32, color);
+    writeTo32x32(matrix, r, 1, color);
   }
 }

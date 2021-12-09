@@ -405,7 +405,7 @@ int draw0(neo_t h, uint8_t leftPos, struct rgb color) {
   writeTo32x32(h, 2, leftPos + 1, color);
 
   for (int r = 2; r < 7; r++) {
-    writeTo32x32(h, r, leftPos + 3, color);
+    writeTo32x32(h, r, leftPos + 2, color);
   }
 
   writeTo32x32(h, 6, leftPos + 1, color);
