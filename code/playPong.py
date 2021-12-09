@@ -9,3 +9,4 @@ with p.stdout:
 		print(line,)
 		os.system("echo -e \"\a\"")
 p.wait()
+
