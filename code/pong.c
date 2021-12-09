@@ -1,3 +1,4 @@
+#include "gpio.h"
 #include "graphics.h"
 #include "hc-sr04.h"
 #include "neopixel.h"
@@ -61,6 +62,8 @@ void notmain(void) {
   hc_sr04_t inpt1 = hc_sr04_init(trigger_pin1, echo_pin1);
   hc_sr04_t inpt2 = hc_sr04_init(trigger_pin2, echo_pin2);
 
+  gpio_set_input(touch_input); // touch
+
   // initialize led matrix
   unsigned numPanels = 4;
   neo_t h = neopix_init(pix_pin, 256 * numPanels);
@@ -72,25 +75,11 @@ void notmain(void) {
   paddle_t player1 = {0};
   paddle_t player2 = {0};
 
-  player1.x = 2;
-  player1.y = 2;
-  player1.len = walls.y / 4;
-  player1.score = 0;
-
-  player2.x = walls.x - 2;
-  player2.y = 2;
-  player2.len = walls.y / 4;
-  player2.score = 0;
+  resetPaddles(&player1, &player2, &walls);
 
   // create ball
   ball_t usr_ball = {0};
-
-  usr_ball.x = walls.x / 2;
-  usr_ball.y = walls.y / 2;
-  usr_ball.next_x = 0;
-  usr_ball.next_y = 0;
-  usr_ball.x_vel = 1;
-  usr_ball.y_vel = 1;
+  resetBall(&usr_ball, &walls);
 
   // main game
   unsigned player1_inpt = 2;
@@ -111,7 +100,7 @@ void notmain(void) {
     // get player input (max: 47)
     player1_inpt = hc_sr04_get_distance(inpt1, timeout);
     player2_inpt = hc_sr04_get_distance(inpt2, timeout);
-    // player2_inpt = getInput(2);
+
     player1_inpt = ((player1_inpt * 16) / 16);
     if (player1_inpt > 16) {
       player1_inpt = 16;
@@ -135,7 +124,7 @@ void notmain(void) {
       resetBall(&usr_ball, &walls);
     }
 
-    // draw_score(h, &player1, &walls);
+    draw_score(h, &player1, &player2, &walls);
   }
 
   clean_reboot();
@@ -200,7 +189,7 @@ void paddle_collisions(ball_t *inpt_ball, paddle_t *inpt_paddle) {
  * output    : void
  */
 void draw_ball(neo_t h, ball_t *input) {
-  writeTo32x32(h, input->y, input->x, BLUE);
+  writeTo32x32(h, 9 + input->y, 1 + input->x, BLUE);
   return;
 }
 
@@ -208,7 +197,7 @@ void draw_paddle(neo_t h, paddle_t *paddle) {
   int i;
 
   for (i = 0; i < paddle->len; i++)
-    writeTo32x32(h, paddle->y + i, paddle->x, RED);
+    writeTo32x32(h, 9 + paddle->y + i, 1 + paddle->x, RED);
 
   return;
 }
@@ -217,6 +206,10 @@ void draw_score(neo_t h, paddle_t *player1, paddle_t *player2,
                 dimensions_t *wall) {
   char player1_score = player1->score + '0';
   char player2_score = player2->score + '0';
+  uint8_t col = 2;
+  drawLetter(h, player1_score, &col);
+  col = 27;
+  drawLetter(h, player2_score, &col);
   // drawScrollingText(h, score_txt);
   // char *score_txt = "Score: " + inpt_paddle->score;
   // mvprintw(0, wall->x / 2 - 7, "Score: %d", inpt_paddle->score);

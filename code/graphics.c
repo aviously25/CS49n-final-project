@@ -291,7 +291,7 @@ void drawScrollingText(neo_t matrix, char str[], int touch_pin) {
     for (int i = 0; i < strlen(str); i++) {
       drawLetter(matrix, str[i],
                  &col); // pass in &col since the draw letter changes col
-      col = col + 6;
+      // col = col + 6;
     }
 
     str = front;

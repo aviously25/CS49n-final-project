@@ -41,9 +41,11 @@ void notmain(void) {
   // drawBird(h, 8);
 
   // drawA(h, 8, RED);
-  writeTo32x32(h, 17, 1, RED);
+  // writeTo32x32(h, 17, 1, RED);
   // neopix_write(h, 760, 0xff, 0, 0);
   // char *str = "ITS GIVING JAIL";
+  char *str = "Score: 3";
+  drawScrollingText(h, str, 20);
 
   // NOTE: this function is running in an infinite while loop at the moment
   // drawText(h, str);
