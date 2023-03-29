@@ -1,5 +1,5 @@
 # Final Project
-Pong game using untrasonic sensors to control the paddles.
+Pong game using two ultrasonic sensors to control the paddles as well as Player vs Player and Player vs CPU game mode.
 
 ### Clone instructions
 Use github submodules I think. [heres a quick intro](https://dev.to/jjokah/submodules-a-git-repo-inside-a-git-repo-36l9)
